@@ -1,0 +1,11 @@
+port: 3000
+mongoUri: mongodb://localhost:27017/pmg
+inputFolder: ./input
+outputFolder: ./output
+banks:
+  - name: BankA
+    inputFolder: ./banks/BankA/input
+    outputFolder: ./banks/BankA/output
+  - name: BankB
+    inputFolder: ./banks/BankB/input
+    outputFolder: ./banks/BankB/output
