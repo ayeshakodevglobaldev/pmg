@@ -4,6 +4,8 @@ const fs = require("fs");
 const configService = require("../config/config.service");
 const transformationService = require("../transformation/transformation.service");
 const validationService = require("../validation/validation.service");
+const xml2js = require('xml2js'); // Import xml2js for parsing
+
 const integrationService = require("../integration/integration.service");
 
 class FileWatcherService {
@@ -51,9 +53,15 @@ class FileWatcherService {
       console.log(`Transformed message for ${bank.name}:`);
       console.log(transformedMessage);
 
-      // Validate the transformed message
+      // Parse the transformed XML into a JavaScript object
+      const parser = new xml2js.Parser({ explicitArray: false });
+      const parsedMessage = await parser.parseStringPromise(transformedMessage);
+
+      console.log(`Parsed MX message for validation:`, parsedMessage);
+
+      // Validate the parsed message
       const isValid = validationService.validateMessage(
-        transformedMessage,
+        parsedMessage,
         "MX"
       );
       if (!isValid) {
@@ -63,14 +71,14 @@ class FileWatcherService {
 
       // Send the message to Raast API
       const raastResponse = await integrationService.sendToRaastApi(
-        transformedMessage
+        parsedMessage
       );
       console.log(`Raast API response for ${bank.name}:`, raastResponse);
 
       // Optionally, publish the message to RabbitMQ
       await integrationService.publishToRabbitMq(
         "payment-messages",
-        transformedMessage
+        parsedMessage
       );
 
       // Save the transformed message to the output folder

@@ -22,7 +22,8 @@ class ValidationService {
   
     // Validate SWIFT MX message
     validateMxMessage(message) {
-      // Example: Check if required fields are present
+      // Example: Check if required fields are 
+      console.log('Validating MX message:', message); // Log the message for debugging
       if (!message.Document || !message.Document.FIToFICstmrCdtTrf) {
         console.error('Invalid MX message: Missing required fields.');
         return false;

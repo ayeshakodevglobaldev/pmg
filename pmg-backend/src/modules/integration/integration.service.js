@@ -4,9 +4,9 @@ const amqp = require('amqplib');
 class IntegrationService {
   constructor() {
     this.rabbitMqUrl = process.env.RABBITMQ_URL || 'amqp://localhost';
-    this.raastApiUrl = process.env.RAAST_API_URL || 'https://raast.example.com/api';
+    this.raastApiUrl = process.env.RAAST_API_URL || 'http://localhost:3001';
   }
-
+  
   /**
    * Send a message to the Raast API.
    * @param {Object} message - The Raast JSON message.
@@ -14,6 +14,7 @@ class IntegrationService {
    */
   async sendToRaastApi(message) {
     try {
+      console.log("Raast APi",this.raastApiUrl);
       console.log('Sending message to Raast API...');
       const response = await axios.post(`${this.raastApiUrl}/transactions`, message, {
         headers: { 'Content-Type': 'application/json' },
@@ -33,12 +34,13 @@ class IntegrationService {
    */
   async publishToRabbitMq(queue, message) {
     try {
-      console.log(`Publishing message to RabbitMQ queue: ${queue}`);
+      console.log(`Publishing message to RabbitMQ queue: ${queue} ${this.rabbitMqUrl} ${JSON.stringify(message, null, 2)}`);
+
       const connection = await amqp.connect(this.rabbitMqUrl);
       const channel = await connection.createChannel();
       await channel.assertQueue(queue, { durable: true });
       channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
-      console.log('Message published to RabbitMQ:', message);
+      console.log('Message published to RabbitMQ:', Buffer.from(JSON.stringify(message)));
       await channel.close();
       await connection.close();
     } catch (error) {

@@ -38,7 +38,6 @@ class TransformationService {
    * @returns {Promise<string>} - Transformed SWIFT MX message.
    */
   async mtToMx(mtMessage) {
-    // Example: Parse MT message and convert to MX format
     console.log('Transforming MT to MX...');
     const mxMessage = {
       Document: {
@@ -54,8 +53,8 @@ class TransformationService {
             },
             Amt: {
               InstdAmt: {
-                _: '50000.00',
-                Ccy: 'PKR',
+                _: '50000.00', // Amount
+                Ccy: 'PKR',    // Currency
               },
             },
             Cdtr: {
@@ -65,6 +64,7 @@ class TransformationService {
         },
       },
     };
+  
 
     return this.builder.buildObject(mxMessage);
   }
