@@ -5,7 +5,7 @@ const configService = require("../config/config.service");
 const transformationService = require("../transformation/transformation.service");
 const validationService = require("../validation/validation.service");
 const xml2js = require('xml2js'); // Import xml2js for parsing
-
+const logger = require('../../shared/logger.service');
 const integrationService = require("../integration/integration.service");
 
 class FileWatcherService {
@@ -17,13 +17,13 @@ class FileWatcherService {
   startWatching() {
     const banks = configService.get("banks");
     if (!banks || banks.length === 0) {
-      console.warn("No banks configured for file watching.");
+      logger.warn('No banks configured for file watching.');
       return;
     }
 
     banks.forEach((bank) => {
       const inputFolder = path.resolve(bank.inputFolder);
-      console.log(`Starting to watch folder: ${inputFolder}`);
+      logger.info(`Starting to watch folder: ${inputFolder}`);
 
       const watcher = chokidar.watch(inputFolder, {
         persistent: true,
@@ -40,8 +40,7 @@ class FileWatcherService {
 
   // Handle new files
   async onFileAdded(filePath, bank) {
-    console.log(`New file detected for ${bank.name}: ${filePath}`);
-
+    logger.info(`New file detected for ${bank.name}: ${filePath}`);
     try {
       // Example: Transform MT to MX
       const transformedMessage = await transformationService.transformMessage(
@@ -50,14 +49,14 @@ class FileWatcherService {
         "MX" // Target format
       );
 
-      console.log(`Transformed message for ${bank.name}:`);
-      console.log(transformedMessage);
+      logger.info(`Transformed message for ${bank.name}:`, { transformedMessage });
+      
 
       // Parse the transformed XML into a JavaScript object
       const parser = new xml2js.Parser({ explicitArray: false });
       const parsedMessage = await parser.parseStringPromise(transformedMessage);
 
-      console.log(`Parsed MX message for validation:`, parsedMessage);
+      logger.info(`Parsed MX message for validation:`, parsedMessage);
 
       // Validate the parsed message
       const isValid = validationService.validateMessage(
@@ -65,7 +64,7 @@ class FileWatcherService {
         "MX"
       );
       if (!isValid) {
-        console.error(`Validation failed for ${bank.name}: ${filePath}`);
+        logger.warn(`Validation failed for ${bank.name}: ${filePath}`);
         return;
       }
 
@@ -73,7 +72,7 @@ class FileWatcherService {
       const raastResponse = await integrationService.sendToRaastApi(
         parsedMessage
       );
-      console.log(`Raast API response for ${bank.name}:`, raastResponse);
+      logger.info(`Raast API response for ${bank.name}:`, raastResponse);
 
       // Optionally, publish the message to RabbitMQ
       await integrationService.publishToRabbitMq(
@@ -88,16 +87,16 @@ class FileWatcherService {
         path.basename(filePath, ".txt") + "-transformed.xml"
       );
       fs.writeFileSync(outputFilePath, transformedMessage, "utf8");
-      console.log(`Transformed message saved to: ${outputFilePath}`);
+      logger.info(`Transformed message saved to: ${outputFilePath}`);
     } catch (error) {
-      console.error(`Error processing file for ${bank.name}: ${error.message}`);
+      logger.error(`Error processing file for ${bank.name}: ${error.message}`);
     }
   }
 
   // Stop all watchers
   stopWatching() {
     this.watchers.forEach((watcher) => watcher.close());
-    console.log("Stopped all file watchers.");
+    logger.info('Stopped all file watchers.');
   }
 }
 

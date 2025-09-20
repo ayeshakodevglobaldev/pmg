@@ -15,17 +15,15 @@ class ValidationService {
           throw new Error(`Unsupported format for validation: ${format}`);
         }
       } catch (error) {
-        console.error(`Validation error: ${error.message}`);
+        logger.error(`Validation error: ${error.message}`);
         return false;
       }
     }
   
     // Validate SWIFT MX message
     validateMxMessage(message) {
-      // Example: Check if required fields are 
-      console.log('Validating MX message:', message); // Log the message for debugging
       if (!message.Document || !message.Document.FIToFICstmrCdtTrf) {
-        console.error('Invalid MX message: Missing required fields.');
+        logger.error('Invalid MX message: Missing required fields.');
         return false;
       }
       return true;
@@ -35,7 +33,7 @@ class ValidationService {
     validateRaastMessage(message) {
       // Example: Check if required fields are present
       if (!message.transactionId || !message.amount || !message.beneficiary) {
-        console.error('Invalid Raast message: Missing required fields.');
+        logger.error('Invalid Raast message: Missing required fields.');
         return false;
       }
       return true;

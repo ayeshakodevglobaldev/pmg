@@ -1,6 +1,6 @@
 const axios = require('axios');
 const amqp = require('amqplib');
-
+const logger = require('../../shared/logger.service');
 class IntegrationService {
   constructor() {
     this.rabbitMqUrl = process.env.RABBITMQ_URL || 'amqp://localhost';
@@ -14,15 +14,15 @@ class IntegrationService {
    */
   async sendToRaastApi(message) {
     try {
-      console.log("Raast APi",this.raastApiUrl);
-      console.log('Sending message to Raast API...');
+      
+      logger.info('Sending message to Raast API...');
       const response = await axios.post(`${this.raastApiUrl}/transactions`, message, {
         headers: { 'Content-Type': 'application/json' },
       });
-      console.log('Raast API response:', response.data);
+      // console.log('Raast API response:', response.data);
       return response.data;
     } catch (error) {
-      console.error('Error sending message to Raast API:', error.message);
+      logger.error('Error sending message to Raast API:', error.message);
       throw error;
     }
   }
@@ -34,17 +34,17 @@ class IntegrationService {
    */
   async publishToRabbitMq(queue, message) {
     try {
-      console.log(`Publishing message to RabbitMQ queue: ${queue} ${this.rabbitMqUrl} ${JSON.stringify(message, null, 2)}`);
+      logger.info(`Publishing message to RabbitMQ queue: ${queue} ${this.rabbitMqUrl} ${JSON.stringify(message, null, 2)}`);
 
       const connection = await amqp.connect(this.rabbitMqUrl);
       const channel = await connection.createChannel();
       await channel.assertQueue(queue, { durable: true });
       channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
-      console.log('Message published to RabbitMQ:', JSON.stringify(message));
+      logger.info('Message published to RabbitMQ:', JSON.stringify(message));
       await channel.close();
       await connection.close();
     } catch (error) {
-      console.error('Error publishing message to RabbitMQ:', error.message);
+      logger.error('Error publishing message to RabbitMQ:', error.message);
       throw error;
     }
   }

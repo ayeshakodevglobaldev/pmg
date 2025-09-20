@@ -1,7 +1,6 @@
 const xml2js = require('xml2js');
 const fs = require('fs');
-const path = require('path');
-
+const logger = require('../../shared/logger.service');
 class TransformationService {
   constructor() {
     this.parser = new xml2js.Parser({ explicitArray: false });
@@ -27,7 +26,7 @@ class TransformationService {
         throw new Error(`Unsupported transformation: ${sourceFormat} → ${targetFormat}`);
       }
     } catch (error) {
-      console.error(`Error transforming message: ${error.message}`);
+      logger.error(`Error transforming message: ${error.message}`);
       throw error;
     }
   }
@@ -75,7 +74,7 @@ class TransformationService {
    * @returns {Promise<string>} - Transformed Raast JSON message.
    */
   async mxToRaast(mxMessage) {
-    console.log('Transforming MX to Raast...');
+    logger.info('Transforming MX to Raast...');
     const parsedMessage = await this.parser.parseStringPromise(mxMessage);
 
     // Example: Map MX fields to Raast JSON fields

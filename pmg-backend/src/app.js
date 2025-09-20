@@ -6,7 +6,7 @@ const configService = require('./modules/config/config.service');
 const fileWatcherService = require('./modules/watcher/file-watcher.service');
 const authorize = require('./shared/rbac.middleware');
 const ROLES = require('./shared/roles');
-
+const logger = require('./shared/logger.service');
 const app = express();
 
 // Middleware
@@ -23,6 +23,7 @@ fileWatcherService.startWatching();
 
 // Default route
 app.get('/', (req, res) => {
+  logger.info('Default route accessed');
   res.send('Payment Messaging Gateway Backend is running!');
 });
 
@@ -46,5 +47,5 @@ const sslOptions = {
 const PORT = configService.get('port') || 3000;
 
 https.createServer(sslOptions,app).listen(PORT, () => {
-  console.log(`Server is running on http://localhost:${PORT}`);
+  logger.info(`Secure server is running on https://localhost:${PORT}`);
 });
