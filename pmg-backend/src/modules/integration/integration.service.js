@@ -40,7 +40,7 @@ class IntegrationService {
       const channel = await connection.createChannel();
       await channel.assertQueue(queue, { durable: true });
       channel.sendToQueue(queue, Buffer.from(JSON.stringify(message)));
-      console.log('Message published to RabbitMQ:', Buffer.from(JSON.stringify(message)));
+      console.log('Message published to RabbitMQ:', JSON.stringify(message));
       await channel.close();
       await connection.close();
     } catch (error) {
