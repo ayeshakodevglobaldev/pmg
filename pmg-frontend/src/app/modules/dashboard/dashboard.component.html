@@ -1,0 +1,37 @@
+<div class="dashboard-root">
+	<h1 class="dashboard-title">PMG Dashboard</h1>
+  
+	<div *ngIf="loading" class="loading-spinner">
+	  <mat-spinner></mat-spinner>
+	</div>
+  
+	<div *ngIf="!loading" class="dashboard-grid">
+	  <mat-card class="dashboard-card primary">
+		<mat-icon class="dashboard-icon">memory</mat-icon>
+		<div class="dashboard-metric">{{ metrics['process_resident_memory_bytes'] | number }}</div>
+		<div class="dashboard-label">Memory Usage (Bytes)</div>
+	  </mat-card>
+	  <mat-card class="dashboard-card accent">
+		<mat-icon class="dashboard-icon">speed</mat-icon>
+		<div class="dashboard-metric">{{ metrics['process_cpu_seconds_total'] | number:'1.2-2' }}</div>
+		<div class="dashboard-label">CPU Time (Seconds)</div>
+	  </mat-card>
+	  <mat-card class="dashboard-card warn">
+		<mat-icon class="dashboard-icon">timer</mat-icon>
+		<div class="dashboard-metric">{{ metrics['nodejs_eventloop_lag_mean_seconds'] | number:'1.2-2' }}</div>
+		<div class="dashboard-label">Event Loop Lag (Seconds)</div>
+	  </mat-card>
+	</div>
+  </div>
+
+  <div class="recent-transactions">
+	<h2>Recent Transactions</h2>
+	<div *ngIf="loadingTransactions" class="loading-spinner">
+	  <mat-spinner></mat-spinner>
+	</div>
+	<mat-list *ngIf="!loadingTransactions">
+	  <mat-list-item *ngFor="let transaction of transactions">
+		Transaction ID: {{ transaction.transactionId }} - Status: {{ transaction.success ? 'Success' : 'Failed' }}
+	  </mat-list-item>
+	</mat-list>
+  </div>

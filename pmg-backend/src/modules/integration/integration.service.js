@@ -34,7 +34,7 @@ class IntegrationService {
    */
   async publishToRabbitMq(queue, message) {
     try {
-      logger.info(`Publishing message to RabbitMQ queue: ${queue} ${this.rabbitMqUrl} ${JSON.stringify(message, null, 2)}`);
+      logger.info(`Publishing message to RabbitMQ queue: ${queue}`);
 
       const connection = await amqp.connect(this.rabbitMqUrl);
       const channel = await connection.createChannel();

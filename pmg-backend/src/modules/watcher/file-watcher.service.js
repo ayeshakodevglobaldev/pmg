@@ -7,6 +7,8 @@ const validationService = require("../validation/validation.service");
 const xml2js = require('xml2js'); // Import xml2js for parsing
 const logger = require('../../shared/logger.service');
 const integrationService = require("../integration/integration.service");
+const monitoringService = require('../../shared/monitoring.service');
+
 
 class FileWatcherService {
   constructor() {
@@ -41,6 +43,7 @@ class FileWatcherService {
   // Handle new files
   async onFileAdded(filePath, bank) {
     logger.info(`New file detected for ${bank.name}: ${filePath}`);
+    const startTime = Date.now(); // Start timer for processing time
     try {
       // Example: Transform MT to MX
       const transformedMessage = await transformationService.transformMessage(
@@ -65,6 +68,7 @@ class FileWatcherService {
       );
       if (!isValid) {
         logger.warn(`Validation failed for ${bank.name}: ${filePath}`);
+        monitoringService.processedMessages.inc({ status: 'failed' }); // Increment failure count
         return;
       }
 
@@ -88,8 +92,13 @@ class FileWatcherService {
       );
       fs.writeFileSync(outputFilePath, transformedMessage, "utf8");
       logger.info(`Transformed message saved to: ${outputFilePath}`);
+      monitoringService.processedMessages.inc({ status: 'success' }); // Increment success count
     } catch (error) {
       logger.error(`Error processing file for ${bank.name}: ${error.message}`);
+      monitoringService.processedMessages.inc({ status: 'failed' }); // Increment failure count
+    } finally {
+      const processingTime = (Date.now() - startTime) / 1000; // Calculate processing time in seconds
+      monitoringService.messageProcessingTime.observe(processingTime); // Record processing time
     }
   }
 

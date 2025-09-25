@@ -1,0 +1,36 @@
+.sidenav-container {
+  height: 100vh;
+}
+.sidenav {
+  width: 220px;
+  background: var(--sidebar-bg);
+  color: var(--sidebar-text);
+}
+.mat-toolbar.mat-primary {
+  background: var(--toolbar-bg) !important;
+  color: #fff;
+}
+.mat-nav-list .mat-list-item {
+  color: var(--sidebar-text);
+}
+.mat-nav-list .mat-list-item.active {
+  background: rgba(255,255,255,0.08);
+  color: var(--primary-color);
+}
+.mat-icon {
+  color: var(--primary-color);
+}
+.main-content {
+  padding: 24px;
+}
+.hide-desktop {
+  display: none;
+}
+@media (max-width: 768px) {
+  .sidenav {
+    width: 0;
+  }
+  .hide-desktop {
+    display: inline-flex;
+  }
+}

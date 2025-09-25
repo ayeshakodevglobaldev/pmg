@@ -1,0 +1,26 @@
+@import 'variables';
+
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.text-primary {
+  color: var(--primary-color);
+}
+.text-accent {
+  color: var(--accent-color);
+}
+.text-warn {
+  color: var(--warn-color);
+}
+.bg-primary {
+  background: var(--primary-color);
+}
+.bg-accent {
+  background: var(--accent-color);
+}
+.bg-warn {
+  background: var(--warn-color);
+}

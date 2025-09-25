@@ -1,0 +1,23 @@
+<h1>Message Monitoring</h1>
+<p>Monitor payment messages here.</p>
+
+<form [formGroup]="transactionForm" (ngSubmit)="submitTransaction()">
+  <mat-form-field appearance="fill">
+    <mat-label>Transaction ID</mat-label>
+    <input matInput formControlName="transactionId" placeholder="Enter Transaction ID" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Bank</mat-label>
+    <mat-select formControlName="bank">
+      <mat-option *ngFor="let bank of banks" [value]="bank">{{ bank }}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <div>
+    <label for="fileUpload">Upload Message File:</label>
+    <input type="file" id="fileUpload" (change)="onFileSelected($event)" />
+  </div>
+
+  <button mat-raised-button color="primary" type="submit">Submit Transaction</button>
+</form>

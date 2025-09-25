@@ -1,0 +1,42 @@
+<h1>Bank Setup</h1>
+<p>Manage bank configurations here.</p>
+
+<form [formGroup]="bankForm" (ngSubmit)="submitBank()">
+  <mat-form-field appearance="fill">
+    <mat-label>Bank Name</mat-label>
+    <input matInput formControlName="name" placeholder="Enter Bank Name" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Input Folder</mat-label>
+    <input matInput formControlName="inputFolder" placeholder="Enter Input Folder Path" />
+  </mat-form-field>
+
+  <mat-form-field appearance="fill">
+    <mat-label>Output Folder</mat-label>
+    <input matInput formControlName="outputFolder" placeholder="Enter Output Folder Path" />
+  </mat-form-field>
+
+  <button mat-raised-button color="primary" type="submit">Add Bank</button>
+</form>
+
+<h2>Existing Banks</h2>
+<table mat-table [dataSource]="banks" class="mat-elevation-z8">
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef> Bank Name </th>
+    <td mat-cell *matCellDef="let bank"> {{ bank.name }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="inputFolder">
+    <th mat-header-cell *matHeaderCellDef> Input Folder </th>
+    <td mat-cell *matCellDef="let bank"> {{ bank.inputFolder }} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="outputFolder">
+    <th mat-header-cell *matHeaderCellDef> Output Folder </th>
+    <td mat-cell *matCellDef="let bank"> {{ bank.outputFolder }} </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="['name', 'inputFolder', 'outputFolder']"></tr>
+  <tr mat-row *matRowDef="let row; columns: ['name', 'inputFolder', 'outputFolder'];"></tr>
+</table>

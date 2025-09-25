@@ -1,0 +1,2 @@
+{"level":"error","message":"Error publishing message to RabbitMQ:","timestamp":"2025-09-20 19:03:25"}
+{"level":"error","message":"Error processing file for BankA: connect ECONNREFUSED ::1:5672","timestamp":"2025-09-20 19:03:25"}

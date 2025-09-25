@@ -1,0 +1,1 @@
+This folder previously contained NgModules and routing modules. As of Angular 19, the project has been refactored to use standalone components. All *module.ts and *-routing.module.ts files can be deleted.

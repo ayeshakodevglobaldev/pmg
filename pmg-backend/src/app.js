@@ -7,7 +7,22 @@ const fileWatcherService = require('./modules/watcher/file-watcher.service');
 const authorize = require('./shared/rbac.middleware');
 const ROLES = require('./shared/roles');
 const logger = require('./shared/logger.service');
+const monitoringService = require('./shared/monitoring.service');
+const cors = require('cors');
+
+
 const app = express();
+
+// Enable CORS for all origins
+app.use(cors());
+
+// Example: Restrict CORS to specific origins (optional)
+const corsOptions = {
+  origin: ['http://localhost:4200','http://localhost:3001'], // Replace with your Angular frontend URL
+  methods: ['GET', 'POST', 'PUT', 'DELETE'], // Allowed HTTP methods
+  allowedHeaders: ['Content-Type', 'Authorization'], // Allowed headers
+};
+app.use(cors(corsOptions));
 
 // Middleware
 app.use(express.json());
@@ -27,14 +42,24 @@ app.get('/', (req, res) => {
   res.send('Payment Messaging Gateway Backend is running!');
 });
 
-// Example protected route for Admins
-app.get('/admin', authorize([ROLES.ADMIN]), (req, res) => {
-  res.send('Welcome, Admin! You have full access.');
-});
+// // Example protected route for Admins
+// app.get('/admin', authorize([ROLES.ADMIN]), (req, res) => {
+//   res.send('Welcome, Admin! You have full access.');
+// });
 
-// Example protected route for Operators
-app.get('/logs', authorize([ROLES.ADMIN, ROLES.OPERATOR]), (req, res) => {
-  res.send('Here are the logs.');
+// // Example protected route for Operators
+// app.get('/logs', authorize([ROLES.ADMIN, ROLES.OPERATOR]), (req, res) => {
+//   res.send('Here are the logs.');
+// });
+
+// Metrics endpoint for Prometheus
+app.get('/metrics', async (req, res) => {
+  try {
+    res.set('Content-Type', monitoringService.register.contentType);
+    res.end(await monitoringService.register.metrics());
+  } catch (err) {
+    res.status(500).send('Error collecting metrics');
+  }
 });
 
 //Load SSL certificates

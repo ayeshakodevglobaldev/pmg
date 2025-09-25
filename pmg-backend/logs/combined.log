@@ -27,3 +27,159 @@
 {"level":"info","message":"Publishing message to RabbitMQ queue: payment-messages amqp://localhost {\n  \"Document\": {\n    \"FIToFICstmrCdtTrf\": {\n      \"GrpHdr\": {\n        \"MsgId\": \"123456789\",\n        \"CreDtTm\": \"2025-09-20T13:28:19.588Z\"\n      },\n      \"CdtTrfTxInf\": {\n        \"PmtId\": {\n          \"InstrId\": \"MT-InstrId\",\n          \"EndToEndId\": \"MT-EndToEndId\"\n        },\n        \"Amt\": {\n          \"InstdAmt\": {\n            \"_\": \"\\n          50000.00\\n          \\n        \",\n            \"Ccy\": \"PKR\"\n          }\n        },\n        \"Cdtr\": {\n          \"Nm\": \"Beneficiary Name\"\n        }\n      }\n    }\n  }\n}","timestamp":"2025-09-20 18:28:19"}
 {"level":"info","message":"Message published to RabbitMQ:","timestamp":"2025-09-20 18:28:19"}
 {"level":"info","message":"Transformed message saved to: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\output\\test-message-transformed.xml","timestamp":"2025-09-20 18:28:19"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-20 18:39:17"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-20 18:39:21"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 18:45:06"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 18:45:06"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 18:45:06"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 18:45:06"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 18:45:28"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 18:45:28"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 18:45:28"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 18:45:28"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 18:46:20"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 18:46:23"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 18:46:23"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 18:46:23"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:02:29"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:02:35"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:02:35"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:02:35"}
+{"level":"info","message":"New file detected for BankA: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input\\test-message.txt","timestamp":"2025-09-20 19:03:25"}
+{"level":"info","message":"Transformed message for BankA:","timestamp":"2025-09-20 19:03:25","transformedMessage":"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Document>\n  <FIToFICstmrCdtTrf>\n    <GrpHdr>\n      <MsgId>123456789</MsgId>\n      <CreDtTm>2025-09-20T14:03:25.430Z</CreDtTm>\n    </GrpHdr>\n    <CdtTrfTxInf>\n      <PmtId>\n        <InstrId>MT-InstrId</InstrId>\n        <EndToEndId>MT-EndToEndId</EndToEndId>\n      </PmtId>\n      <Amt>\n        <InstdAmt>\n          50000.00\n          <Ccy>PKR</Ccy>\n        </InstdAmt>\n      </Amt>\n      <Cdtr>\n        <Nm>Beneficiary Name</Nm>\n      </Cdtr>\n    </CdtTrfTxInf>\n  </FIToFICstmrCdtTrf>\n</Document>"}
+{"Document":{"FIToFICstmrCdtTrf":{"CdtTrfTxInf":{"Amt":{"InstdAmt":{"Ccy":"PKR","_":"\n          50000.00\n          \n        "}},"Cdtr":{"Nm":"Beneficiary Name"},"PmtId":{"EndToEndId":"MT-EndToEndId","InstrId":"MT-InstrId"}},"GrpHdr":{"CreDtTm":"2025-09-20T14:03:25.430Z","MsgId":"123456789"}}},"level":"info","message":"Parsed MX message for validation:","timestamp":"2025-09-20 19:03:25"}
+{"level":"info","message":"Sending message to Raast API...","timestamp":"2025-09-20 19:03:25"}
+{"level":"info","message":"Raast API response for BankA:","success":true,"timestamp":"2025-09-20 19:03:25","transactionId":"12345"}
+{"level":"info","message":"Publishing message to RabbitMQ queue: payment-messages amqp://localhost {\n  \"Document\": {\n    \"FIToFICstmrCdtTrf\": {\n      \"GrpHdr\": {\n        \"MsgId\": \"123456789\",\n        \"CreDtTm\": \"2025-09-20T14:03:25.430Z\"\n      },\n      \"CdtTrfTxInf\": {\n        \"PmtId\": {\n          \"InstrId\": \"MT-InstrId\",\n          \"EndToEndId\": \"MT-EndToEndId\"\n        },\n        \"Amt\": {\n          \"InstdAmt\": {\n            \"_\": \"\\n          50000.00\\n          \\n        \",\n            \"Ccy\": \"PKR\"\n          }\n        },\n        \"Cdtr\": {\n          \"Nm\": \"Beneficiary Name\"\n        }\n      }\n    }\n  }\n}","timestamp":"2025-09-20 19:03:25"}
+{"level":"error","message":"Error publishing message to RabbitMQ:","timestamp":"2025-09-20 19:03:25"}
+{"level":"error","message":"Error processing file for BankA: connect ECONNREFUSED ::1:5672","timestamp":"2025-09-20 19:03:25"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-20 19:09:19"}
+{"level":"info","message":"New file detected for BankA: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input\\test-message.txt","timestamp":"2025-09-20 19:12:40"}
+{"level":"info","message":"Transformed message for BankA:","timestamp":"2025-09-20 19:12:40","transformedMessage":"<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?>\n<Document>\n  <FIToFICstmrCdtTrf>\n    <GrpHdr>\n      <MsgId>123456789</MsgId>\n      <CreDtTm>2025-09-20T14:12:40.503Z</CreDtTm>\n    </GrpHdr>\n    <CdtTrfTxInf>\n      <PmtId>\n        <InstrId>MT-InstrId</InstrId>\n        <EndToEndId>MT-EndToEndId</EndToEndId>\n      </PmtId>\n      <Amt>\n        <InstdAmt>\n          50000.00\n          <Ccy>PKR</Ccy>\n        </InstdAmt>\n      </Amt>\n      <Cdtr>\n        <Nm>Beneficiary Name</Nm>\n      </Cdtr>\n    </CdtTrfTxInf>\n  </FIToFICstmrCdtTrf>\n</Document>"}
+{"Document":{"FIToFICstmrCdtTrf":{"CdtTrfTxInf":{"Amt":{"InstdAmt":{"Ccy":"PKR","_":"\n          50000.00\n          \n        "}},"Cdtr":{"Nm":"Beneficiary Name"},"PmtId":{"EndToEndId":"MT-EndToEndId","InstrId":"MT-InstrId"}},"GrpHdr":{"CreDtTm":"2025-09-20T14:12:40.503Z","MsgId":"123456789"}}},"level":"info","message":"Parsed MX message for validation:","timestamp":"2025-09-20 19:12:40"}
+{"level":"info","message":"Sending message to Raast API...","timestamp":"2025-09-20 19:12:40"}
+{"level":"info","message":"Raast API response for BankA:","success":true,"timestamp":"2025-09-20 19:12:40","transactionId":"12345"}
+{"level":"info","message":"Publishing message to RabbitMQ queue: payment-messages amqp://localhost {\n  \"Document\": {\n    \"FIToFICstmrCdtTrf\": {\n      \"GrpHdr\": {\n        \"MsgId\": \"123456789\",\n        \"CreDtTm\": \"2025-09-20T14:12:40.503Z\"\n      },\n      \"CdtTrfTxInf\": {\n        \"PmtId\": {\n          \"InstrId\": \"MT-InstrId\",\n          \"EndToEndId\": \"MT-EndToEndId\"\n        },\n        \"Amt\": {\n          \"InstdAmt\": {\n            \"_\": \"\\n          50000.00\\n          \\n        \",\n            \"Ccy\": \"PKR\"\n          }\n        },\n        \"Cdtr\": {\n          \"Nm\": \"Beneficiary Name\"\n        }\n      }\n    }\n  }\n}","timestamp":"2025-09-20 19:12:40"}
+{"level":"info","message":"Message published to RabbitMQ:","timestamp":"2025-09-20 19:12:40"}
+{"level":"info","message":"Transformed message saved to: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\output\\test-message-transformed.xml","timestamp":"2025-09-20 19:12:40"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:14:05"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:14:12"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:14:12"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:14:12"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:19:09"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:19:10"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:19:10"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:19:10"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:19:37"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:19:39"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:19:39"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:19:39"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:19:59"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:20:00"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:20:00"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:20:00"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:20:18"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:20:19"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:20:19"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:20:19"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:20:55"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:20:55"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:20:55"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:20:56"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:21:11"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:21:11"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:21:11"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:21:11"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:21:22"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:21:22"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:21:22"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:21:22"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:44:03"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:44:04"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:44:04"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:44:04"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:44:47"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:44:48"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:44:48"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:44:48"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-20 19:44:50"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-20 19:44:50"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-20 19:44:50"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-20 19:44:50"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-20 20:07:07"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-20 20:15:07"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-20 22:49:53"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-21 13:07:23"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-21 13:07:24"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-21 13:07:24"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-21 13:07:24"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-21 13:07:58"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-21 13:07:58"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-21 13:07:58"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-21 13:07:58"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-21 13:08:07"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-21 13:08:07"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-21 13:08:07"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-21 13:08:07"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-21 13:08:18"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-21 13:08:18"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-21 13:08:18"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-21 13:08:18"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-21 13:25:31"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-21 15:37:05"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-21 15:37:12"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-21 15:37:12"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-21 15:37:13"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-21 15:37:16"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-21 15:37:17"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-21 15:37:17"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-21 15:37:17"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-21 15:37:24"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-21 15:37:25"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-21 15:37:25"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-21 15:37:25"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:18:14"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:18:23"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:18:23"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:18:23"}
+{"level":"info","message":"Default route accessed","timestamp":"2025-09-25 06:21:48"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:35:45"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:35:52"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:35:52"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:35:52"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:39:29"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:39:30"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:39:30"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:39:30"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:39:34"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:39:34"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:39:34"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:39:34"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:40:43"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:40:45"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:40:45"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:40:45"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:40:49"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:40:49"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:40:49"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:40:49"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:41:03"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:41:04"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:41:04"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:41:04"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:41:08"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:41:08"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:41:08"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:41:09"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:41:12"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:41:13"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:41:13"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:41:13"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:42:41"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:42:42"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:42:42"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:42:42"}
+{"level":"info","message":"Configuration loaded from config.yml","timestamp":"2025-09-25 06:42:53"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankA\\input","timestamp":"2025-09-25 06:42:55"}
+{"level":"info","message":"Starting to watch folder: F:\\Ayesha\\Kodev Global\\angular19\\pmg-backend\\banks\\BankB\\input","timestamp":"2025-09-25 06:42:55"}
+{"level":"info","message":"Secure server is running on https://localhost:3000","timestamp":"2025-09-25 06:42:55"}

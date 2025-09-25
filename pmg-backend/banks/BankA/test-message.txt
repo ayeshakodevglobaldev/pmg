@@ -1,0 +1,3 @@
+:20:MT-InstrId
+:32A:50000,PKR
+:59:Beneficiary Name

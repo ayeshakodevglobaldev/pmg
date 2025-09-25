@@ -1,0 +1,46 @@
+
+.user-mgmt-root {
+	padding: 24px 0;
+}
+
+.user-mgmt-title {
+	font-size: 2rem;
+	margin-bottom: 28px;
+	color: var(--accent-color);
+	letter-spacing: 1px;
+}
+
+.user-mgmt-table-wrapper {
+	background: #fff;
+	border-radius: 14px;
+	padding: 18px 12px 12px 12px;
+	overflow-x: auto;
+}
+
+table {
+	width: 100%;
+	font-size: 1.08rem;
+}
+
+th.mat-header-cell {
+	color: var(--accent-color);
+	font-weight: 600;
+	letter-spacing: 0.5px;
+}
+
+td.mat-cell {
+	color: #333;
+}
+
+.active {
+	color: var(--primary-color);
+	font-weight: 600;
+}
+.inactive {
+	color: var(--warn-color);
+	font-weight: 600;
+}
+
+button[mat-icon-button] {
+	margin-right: 4px;
+}
