@@ -6,11 +6,11 @@ import { Observable } from 'rxjs';
 export class BankService {
   constructor(private http: HttpClient) {}
 
-  getBanks(): Observable<any[]> {
-    return this.http.get<any[]>('http://localhost:3000/banks');
+  getBanks(): Observable<any> {
+    return this.http.get<any>('https://localhost:3000/api/bank');
   }
 
   addBank(payload: any): Observable<any> {
-    return this.http.post('http://localhost:3000/banks', payload);
+    return this.http.post('https://localhost:3000/api/bank', payload);
   }
 }

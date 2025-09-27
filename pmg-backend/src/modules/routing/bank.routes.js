@@ -2,16 +2,19 @@ const express = require('express');
 const router = express.Router();
 const bankController = require('../../controllers/bank.controller');
 
-// Get all banks
-router.get('/banks', bankController.getBanks);
+const { validateBank } = require('../../shared/validation.middleware');
+const upload = require('../../shared/upload.middleware');
 
-// Add a new bank
-router.post('/banks', bankController.addBank);
 
-// Update an existing bank
-router.put('/banks/:id', bankController.updateBank);
+// Get bank configuration
+router.get('/bank', bankController.getBank);
 
-// Delete a bank
-router.delete('/banks/:id', bankController.deleteBank);
+// Add or update bank configuration with validation and file upload
+router.post('/bank', upload.single('certificate'), validateBank, bankController.addOrUpdateBank);
+
+// Delete bank configuration
+router.delete('/bank', bankController.deleteBank);
+
+module.exports = router;
 
 module.exports = router;

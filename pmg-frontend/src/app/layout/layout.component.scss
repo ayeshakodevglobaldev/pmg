@@ -1,10 +1,12 @@
+
+
 .sidenav-container {
   height: 100vh;
 }
 .sidenav {
   width: 220px;
   background: var(--sidebar-bg);
-  color: var(--sidebar-text);
+  color: var(--sidebar-text) !important;
 }
 .mat-toolbar.mat-primary {
   background: var(--toolbar-bg) !important;
@@ -13,6 +15,7 @@
 .mat-nav-list .mat-list-item {
   color: var(--sidebar-text);
 }
+
 .mat-nav-list .mat-list-item.active {
   background: rgba(255,255,255,0.08);
   color: var(--primary-color);

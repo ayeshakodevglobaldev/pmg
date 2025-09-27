@@ -9,7 +9,7 @@ const ROLES = require('./shared/roles');
 const logger = require('./shared/logger.service');
 const monitoringService = require('./shared/monitoring.service');
 const cors = require('cors');
-
+const bankRoutes = require('./modules/routing/bank.routes');
 
 const app = express();
 
@@ -32,6 +32,9 @@ mongoose
   .connect(configService.get('mongoUri'), { useNewUrlParser: true, useUnifiedTopology: true })
   .then(() => console.log('Connected to MongoDB'))
   .catch((err) => console.error('MongoDB connection error:', err));
+
+// Routes
+app.use('/api', bankRoutes);
 
 // Start the Dynamic File Watcher
 fileWatcherService.startWatching();

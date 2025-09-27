@@ -1,7 +1,8 @@
 
 
-@import 'styles/variables';
-@import 'styles/shared';
+@use 'styles/variables';
+@use 'styles/shared';
+@import '@angular/material/prebuilt-themes/indigo-pink.css';
 
 body {
 	font-family: var(--font-family);
@@ -52,4 +53,26 @@ h1, h2, h3, h4, h5, h6 {
   
   .mat-elevation-z8 {
 	box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  }
+  .loading-spinner {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100px;
+  }
+
+//   :root {
+// 	--mdc-list-list-item-label-text-color: white;
+// 	// --mdc-list-list-item-hover-background-color: #333; /* Darker background for hover */
+// 	--mdc-list-list-item-hover-text-color: white; /* Ensure text remains white on hover */
+//   }
+mat-nav-list .mat-mdc-list-item:hover {
+
+	.mdc-list-item__primary-text{color: var(--mdc-list-list-item-hover-text-color) !important;}
+	// background-color: var(--mdc-list-list-item-hover-background-color) !important;
+	
+  }
+  mat-nav-list .mdc-list-item:focus {
+	.mdc-list-item__primary-text{color: var(--mdc-list-list-item-hover-text-color) !important;}
+	outline: 2px solid #fff;
   }

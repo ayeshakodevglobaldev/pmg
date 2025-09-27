@@ -1,1 +1,13 @@
 h1 { color: var(--sidebar-bg); }
+.form-row{
+    display: flex;
+    gap:5px;
+}
+.channel-list{
+
+    gap: 10px;
+    display:flex;
+}
+.add-channgel-button{
+    margin-bottom: 10px;
+}
